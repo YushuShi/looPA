@@ -1,0 +1,11 @@
+import(vegan)
+import(ggplot2)
+import(ape)
+import(parallel)
+import(foreach)
+import(iterators)
+import(doParallel)
+import(GUniFrac)
+importFrom("stats", "as.dist", "median", "quantile")
+
+export(looPA)  

@@ -1,4 +1,4 @@
-looPA<-function(otutable,taxonomy, sampleInfo, outcomeVar, numRep=200, useMoreCores=FALSE, tree=NULL,distanceMetric="Bray Curtis"){
+looPA<-function(otutable,taxonomy, sampleInfo, outcomeVar, numRep=200, useMoreCores=TRUE, tree=NULL,distanceMetric="Bray Curtis"){
   if((sum(rownames(otutable)%in%rownames(taxonomy))!=
      nrow(otutable))|(sum(rownames(taxonomy)%in%rownames(otutable))!=
     nrow(taxonomy))){
@@ -17,9 +17,10 @@ looPA<-function(otutable,taxonomy, sampleInfo, outcomeVar, numRep=200, useMoreCo
     stop("The OTU table and the sample information do not match!")
   }
   
-  sampleInfo<-sampleInfo[colnames(otutable),]
   taxonomy<-taxonomy[rownames(otutable),]
   outcome<-sampleInfo[,outcomeVar]
+  names(outcome)<-rownames(sampleInfo)
+  outcome<-outcome[colnames(otutable)]
 
 if(useMoreCores==TRUE){
 no_cores <- detectCores() - 1  
@@ -49,7 +50,6 @@ registerDoParallel(cl)
 looPAmat<- foreach(icount(numRep), .combine=rbind) %dopar% {
   looPACore(otutable,tree,taxonomy,distanceMetric,outcome)
 }
-
 looPAmedian<-apply(looPAmat,2,median)
 looPAupper<-apply(looPAmat,2,quantile,0.975)
 looPAlower<-apply(looPAmat,2,quantile,0.025)
@@ -72,11 +72,10 @@ looPAresult<- data.frame(
   upper=looPAupper,
   lower=looPAlower)
 
-looPAplot<-ggplot(data) +
+looPAplot<-ggplot(looPAresult) +
   geom_bar(aes_string(x='Taxa', y='pvalue'), stat="identity", fill="skyblue", alpha=0.7) +
   geom_errorbar( aes_string(x='Taxa', ymin='lower', ymax='upper'), width=0.2, colour="orange", alpha=1, size=1)+coord_flip()
 plot(looPAplot)
 result<-list(looPAresult=looPAresult,looPAplot=looPAplot)
-
 result
 }

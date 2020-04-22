@@ -7,7 +7,7 @@ Microbiome feature identification using leave-one-out with Permanova assessment
 \description{
 looPA is a permutation based method, which can account for phylogenetic relatedness between taxonomic features and identify important features for further investigation.}
 \usage{
-looPA(otutable,taxonomy, sampleInfo, outcomeVar, numRep=200,useMoreCores=FALSE,
+looPA(otutable,taxonomy, sampleInfo, outcomeVar, numRep=200,useMoreCores=TRUE,
 tree=NULL,distanceMetric="Bray Curtis")
 }
 
@@ -23,8 +23,8 @@ tree=NULL,distanceMetric="Bray Curtis")
 }
 
 \value{
-A plot showing the selected features and the corresponding dataframe with the names of the selected taxa and their median and confidence intervals over repeated PERMANOVA tests/
-}
+  \item{looPAresult}{A dataframe with the names of the selected taxa and their medians and confidence intervals over repeated PERMANOVA tests.}
+\item{looPAplot}{A plot showing the selected features.}}
 
 \examples{
 library(vegan)
@@ -40,7 +40,7 @@ options(stringsAsFactors = FALSE)
 
 outcomeVar<-"Response"
 
-looPAResult<-looPA(otutable,taxonomy, sampleInfo, outcomeVar,useMoreCores=TRUE,
+looPAResult<-looPA(otutable,taxonomy, sampleInfo, outcomeVar,
 tree=tree,distanceMetric="Weighted UniFrac")
 }
 

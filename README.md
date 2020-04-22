@@ -20,14 +20,18 @@ looPA(otutable,taxonomy, sampleInfo, outcomeVar, numRep=200,useMoreCores=TRUE,
 
 ### What the data should look like
 
-######otutable
+###### otutable
+
 ![](images/otutable.png)
 
-######taxonomy
+###### taxonomy
+
 ![](images/taxonomy.png)
 
-######sampleInfo
-![](images/sampleInfo.png)
+###### sampleInfo
+
+![fig_width=2in](images/sampleInfo.png)
+
 ### Results
 |Results||
 |------|-----|	

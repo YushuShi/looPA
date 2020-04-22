@@ -17,6 +17,17 @@ looPA(otutable,taxonomy, sampleInfo, outcomeVar, numRep=200,useMoreCores=TRUE,
 |useMoreCores|	Shall we use more cores of the computer for this job? By default, the number of cores used will be the number of cores of the computer -1. If you give an integer value, looPA will use it as the number of cores you want to use.|
 |tree|	The phylogenetic information correspond to OTU table.|
 |distanceMetric|	The distance metric used in PERMANOVA test. We offer three choices, "Bray Curtis" (the default), "Unweighted UniFrac"(requires tree information), and "Weighted UniFrac"(requires tree information).|
+
+### What the data should look like
+
+######otutable
+![](images/otutable.png)
+
+######taxonomy
+![](images/taxonomy.png)
+
+######sampleInfo
+![](images/sampleInfo.png)
 ### Results
 |Results||
 |------|-----|	

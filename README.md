@@ -30,7 +30,7 @@ looPA(otutable,taxonomy, sampleInfo, outcomeVar, numRep=200,useMoreCores=TRUE,
 
 ###### sampleInfo
 
-![fig_width=2in](images/sampleInfo.png)
+![fig_width=1in](images/sampleInfo.png)
 
 ### Results
 |Results||

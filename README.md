@@ -18,7 +18,7 @@ looPA(otutable,taxonomy, sampleInfo, outcomeVar, numRep=200,useMoreCores=TRUE,
 |tree|	The phylogenetic information correspond to OTU table.|
 |distanceMetric|	The distance metric used in PERMANOVA test. We offer three choices, "Bray Curtis" (the default), "Unweighted UniFrac"(requires tree information), and "Weighted UniFrac"(requires tree information).|
 
-### What the data should look like
+<!---### What the data should look like
 
 ###### otutable
 
@@ -30,7 +30,7 @@ looPA(otutable,taxonomy, sampleInfo, outcomeVar, numRep=200,useMoreCores=TRUE,
 
 ###### sampleInfo
 
-![fig_width=1in](images/sampleInfo.png)
+![fig_asp=0.5](images/sampleInfo.png) --->
 
 ### Results
 |Results||

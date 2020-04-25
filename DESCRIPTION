@@ -7,7 +7,7 @@ Author: Yushu Shi
 Maintainer: Yushu Shi <shiyushu2006@gmail.com>
 Description: In microbiome analysis, it is crucial to identify taxonomic features that are strongly associated with the outcome(s) of interest. However, microbiome data have the complex phylogenetic structure and often suffer from zero-inflation, which can make assessing feature importance challenging. On the other hand, with the advent of computational technologies, researchers are now able to comprehensively analyze microbiome data with permutation methods. We propose a novel permutation-based method, looPA, which can account for phylogenetic relatedness between taxonomic features and identify important features for further investigation.
 License: GPL (>= 2)
-Imports: vegan, GUniFrac, ape, ggplot2, foreach, parallel, iterators, doParallel
+Imports: vegan, GUniFrac, ape, ggplot2, foreach, parallel, iterators, doParallel, doSNOW
 Depends: R (>= 3.5.0)
 NeedsCompilation: no
 LazyData: true

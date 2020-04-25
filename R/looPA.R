@@ -26,26 +26,33 @@ if(useMoreCores==TRUE){
 no_cores <- detectCores() - 1  
 if(.Platform$OS.type=="windows"){
   cl <- makeCluster(no_cores)  
+  registerDoSNOW(cl)
 }else{
   cl <- makeCluster(no_cores, type="FORK")  
+  registerDoParallel(cl) 
 }
 }else if(is.integer(useMoreCores)){
   no_cores <-useMoreCores
+  print(paste("Number of Cores Used"),no_cores)
   if(.Platform$OS.type=="windows"){
     cl <- makeCluster(no_cores)  
+    registerDoSNOW(cl)
   }else{
     cl <- makeCluster(no_cores, type="FORK")  
+    registerDoParallel(cl) 
   }
 }else{
   no_cores <- 2L
   if(.Platform$OS.type=="windows"){
     cl <- makeCluster(no_cores)  
+    registerDoSNOW(cl)
   }else{
     cl <- makeCluster(no_cores, type="FORK")  
+    registerDoParallel(cl) 
   }
 }
-print(paste("Number of Cores Used"),cl)
-registerDoParallel(cl) 
+
+
 
 looPAmat<- foreach(icount(numRep), .combine=rbind) %dopar% {
   looPACore(otutable,tree,taxonomy,distanceMetric,outcome)

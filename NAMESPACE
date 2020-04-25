@@ -6,6 +6,7 @@ import(foreach)
 import(iterators)
 import(doParallel)
 import(GUniFrac)
+import(doSNOW)
 importFrom("stats", "as.dist", "median", "quantile")
 
 export(looPA)  

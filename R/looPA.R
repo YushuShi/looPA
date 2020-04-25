@@ -44,7 +44,7 @@ if(.Platform$OS.type=="windows"){
     cl <- makeCluster(no_cores, type="FORK")  
   }
 }
-
+print(paste("Number of Cores Used"),cl)
 registerDoParallel(cl) 
 
 looPAmat<- foreach(icount(numRep), .combine=rbind) %dopar% {

@@ -24,7 +24,7 @@ looPA<-function(otutable,taxonomy, sampleInfo, outcomeVar, numRep=200, useMoreCo
 
 if(useMoreCores==TRUE){
 no_cores <- detectCores() - 1  
-print(paste("Number of Cores Used"),no_cores)
+print(paste("Number of Cores Used",no_cores))
 if(.Platform$OS.type=="windows"){
   cl <- makeCluster(no_cores)  
   registerDoSNOW(cl)

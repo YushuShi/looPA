@@ -48,4 +48,4 @@ looPAResult<-looPA(otutable,taxonomy, sampleInfo, outcomeVar,useMoreCores=TRUE,
 tree=tree,distanceMetric="Weighted UniFrac")
 ```
 
-![](Rplot.pdf)
+![](images/Rplot.pdf)

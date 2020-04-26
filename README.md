@@ -38,7 +38,7 @@ looPA(otutable,taxonomy, sampleInfo, outcomeVar, numRep=200,useMoreCores=TRUE,
 |looPAresult|	A dataframe with the names of the selected taxa and their medians and confidence intervals over repeated PERMANOVA tests.|
 |looPAplot|	A plot showing the selected features.|
 
-![](Rplot.pdf)
+
 ### Example
 ```{r}
 library(looPA)
@@ -47,3 +47,5 @@ outcomeVar<-"Response"
 looPAResult<-looPA(otutable,taxonomy, sampleInfo, outcomeVar,useMoreCores=TRUE,
 tree=tree,distanceMetric="Weighted UniFrac")
 ```
+
+![](Rplot.pdf)
